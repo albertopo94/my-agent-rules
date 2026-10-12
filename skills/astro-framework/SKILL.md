@@ -247,6 +247,29 @@ import UserAvatar from '../components/UserAvatar.astro';
 </UserAvatar>
 ```
 
+### CLI Commands
+
+| Command | Use |
+|---------|-----|
+| `npx astro dev` | Start the development server |
+| `npx astro sync` | Regenerate TypeScript types — re-run after adding or changing integrations |
+| `npx astro check` | Project type and configuration errors |
+| `npx astro build` | Produce the deployment artifact |
+| `npx astro add <integration>` | Add an integration or adapter (e.g. `node`, `cloudflare`, `netlify`, `vercel`) |
+
+### Deploy Gate
+
+Before any deploy:
+
+1. `npx astro add <adapter> --yes` if the adapter is not configured yet.
+2. `npx astro check` — fix type and configuration errors before building.
+3. `npx astro build`.
+4. Verify the build output directory exists and is non-empty before proceeding.
+
+Astro publishes a documentation index written for agents at
+`https://docs.astro.build/llms.txt` — consult it and the docs for current API instead of
+relying on memory.
+
 ## Output Format
 
 When implementing Astro features, provide:

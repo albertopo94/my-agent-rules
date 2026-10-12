@@ -22,6 +22,13 @@
    pointed at a deleted `rules/*.rule.md` file. Leaving it would have been a pointer to nothing.
 3. **`AGENTS.md` (5.8 KB cheatsheet) not copied.** It is a standalone cheatsheet that does not add
    anything to `SKILL.md`'s own Quick Reference section.
+4. **`## Quick Reference` gained three blocks merged from the mirror copy** of the same-named
+   `astro` skill in `midudev/la-velada-web-oficial` (that copy's own content, MIT; its
+   `authors: "Astro Team"` attribution was false and was not carried over): the `npx astro`
+   CLI command table, the Deploy Gate (check → build → verify output non-empty), and the
+   `docs.astro.build/llms.txt` pointer. Upstream `delineas` has none of these (verified: zero
+   occurrences of `astro check`, `astro dev`, `llms.txt` before the merge). They add no
+   conflicting instructions, so keep them on update.
 
 Everything else is byte-identical to the upstream revision above. When updating: reapply these
 three deletions, because upstream will keep shipping `rules/` and the section that points at it.
