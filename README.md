@@ -57,14 +57,34 @@ data-persisting products, and is meant to be deleted for a CLI, library, or term
 ```
 AGENTS.md                        the shell itself
 skills/shell-bootstrap/          install the shell in a project, fill §0, prove no residue
+skills/skill-updates/            check vendored skills against upstream, report before touching
 skills/UPSTREAM.template.md      provenance record required for any skill copied from elsewhere
 LICENSE                          MIT
 .gitignore                       stack blocks to prune per project
 ```
 
+### Vendored skills and updates
+
 A skill folder with an `UPSTREAM.md` came from another repository; one without it was written
-here. The record carries the upstream commit and dates, so an agent can be asked whether a
-vendored skill changed upstream and report the diff before anything is overwritten.
+here. The record pins the upstream **commit for that skill's own path** plus the revision date and
+the fetch date.
+
+Ask an agent *"are the skills current?"* or *"update the skills"* and it loads
+`skills/skill-updates/SKILL.md`, which reads each `UPSTREAM.md`, queries upstream for that path
+only, and reports `current` / `update available` / `authored here` with a diff before anything is
+overwritten. Comparison is against the **recorded commit, never against today**: a repo can be
+pushed weekly while one skill sits untouched for a year, so a HEAD-anchored date produces a false
+alarm every time.
+
+| Skill | Upstream | Recorded |
+|---|---|---|
+| accessibility | addyosmani/web-quality-skills | `c6b06ad1` · 2026-08-24 |
+| seo | addyosmani/web-quality-skills | `c6b06ad1` · 2026-08-24 |
+| frontend-design | anthropics/skills | `41bbe19d` · 2026-09-03 |
+| typescript-advanced-types | wshobson/agents | `be57c0b2` · 2026-05-22 |
+| nodejs-backend-patterns | wshobson/agents | `51b6e0b5` · 2026-09-28 |
+| astro-framework | delineas/astro-framework-agents | `ba74cc81` · 2026-03-22 |
+| nodejs-best-practices, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 Local-only, gitignored on purpose:
 
