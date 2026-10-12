@@ -57,7 +57,16 @@ data-persisting products, and is meant to be deleted for a CLI, library, or term
 ```
 AGENTS.md                        the shell itself
 skills/shell-bootstrap/          install the shell in a project, fill §0, prove no residue
-odd/tasks/                       ODD tracking for work done in this repo
+LICENSE                          MIT
+.gitignore                       stack blocks to prune per project
+```
+
+Local-only, gitignored on purpose:
+
+```
+odd/tasks/                       ODD tracking for work done in this repo — working notes, not
+                                 part of what gets copied into a new project
+.atl/                            regenerated skill-registry cache
 ```
 
 ## Deliberately not here

@@ -17,6 +17,7 @@ Desktop.ini
 .atl/
 .codegraph/
 *.log
+odd/
 
 # --- Secrets and local overrides (never commit) ---
 .env
