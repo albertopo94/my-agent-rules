@@ -42,7 +42,9 @@ report the assumption you made. Never substitute a value remembered from another
 
 - **Read before you write.** Open the file you will change, its call sites, and the nearest
   existing example of the pattern you are about to introduce. Do not invent an API, signature,
-  or flag: confirm it against the installed dependency's real source or version.
+  or flag: confirm it against the installed dependency's real source or version. Before adding a
+  helper, search for one that already exists — duplicating a utility in a second file is a defect,
+  not a convenience.
 - **Target the platform floor declared in §0.** Do not use a facility, syntax, or syscall that is
   unavailable there, and do not widen the floor on your own to make an implementation easier.
 - **Smallest correct diff.** Touch only files the task requires. Never reformat, rename, move,
@@ -73,8 +75,8 @@ left implicit.
 | everything else: `fix` `docs` `test` `refactor` `chore` `perf`, or unclear | PATCH |
 
 - Resolve what `MAJOR` means only through **Stability contract** in §0. While the project is
-  `unstable`, never choose MAJOR on your own: report "breaking change" in the summary and bump
-  MINOR. MAJOR on an `unstable` project happens only on explicit request.
+  `unstable`, never choose MAJOR on your own: name the breakage in the §6 `breaking:` field and
+  bump MINOR. MAJOR on an `unstable` project happens only on explicit request.
 - **Bump once per work unit**, using the highest category present across its commits, not once per
   commit. The version change lands in the **last** commit of the work unit, so it does not pollute
   the commit that carries the behavior.
@@ -86,11 +88,15 @@ left implicit.
 - If you cannot decide whether something is breaking, take the lower category and state the
   uncertainty in one line.
 - **Every completed work unit must report `version: <before> → <after>`, writing `unchanged`
-  when it did not move.** The line is information for later traceability, not approval requested
-  now.
+  when it did not move, together with the `breaking:` field required by §6.** Both lines are
+  information for later traceability, not approval requested now.
 
 ## 4. Testing and verification
 
+- **Scale the check to the change.** Expensive validation — a full suite, a whole-project
+  type-check, a build — runs when the change touches behavior, when it is risky, or when the
+  cheapest available signal does not cover what you touched. Not after every small edit. The
+  cheapest signal that covers the change wins.
 - If §0 declares a test command: behavior changes go test-first — observe the failure for the
   expected reason, implement, observe the pass, then refactor with the focused command.
 - If no test command is declared, do not improvise one and do not claim tests: run a
@@ -122,7 +128,7 @@ Report, in this order:
 
 1. What changed and why.
 2. Which checks ran, with their result lines; which did not run and why.
-3. `version: <before> → <after>`.
+3. `version: <before> → <after>` and `breaking: <list>` or `breaking: none`.
 4. Follow-ups found outside this scope.
 
 Keep it short enough to read in one pass. Never write that work is complete while a check is
