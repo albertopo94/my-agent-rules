@@ -57,9 +57,14 @@ data-persisting products, and is meant to be deleted for a CLI, library, or term
 ```
 AGENTS.md                        the shell itself
 skills/shell-bootstrap/          install the shell in a project, fill §0, prove no residue
+skills/UPSTREAM.template.md      provenance record required for any skill copied from elsewhere
 LICENSE                          MIT
 .gitignore                       stack blocks to prune per project
 ```
+
+A skill folder with an `UPSTREAM.md` came from another repository; one without it was written
+here. The record carries the upstream commit and dates, so an agent can be asked whether a
+vendored skill changed upstream and report the diff before anything is overwritten.
 
 Local-only, gitignored on purpose:
 
