@@ -3,7 +3,7 @@ name: nodejs-best-practices
 description: "Trigger: Node.js architecture decision, framework choice, async patterns, error handling, validation, testing strategy, backend design. Node.js development principles and decision-making. Framework selection, async patterns, security, and architecture. Teaches thinking, not copying."
 license: MIT
 metadata:
-  author: albertmac11
+  author: https://github.com/albertopo94
   version: "1.0"
   provenance: "adapted from a public copy whose upstream is untraceable; adopted 2026-10-12. Rewritten into the shell's own skill structure — this file is authored here, not vendored."
 ---

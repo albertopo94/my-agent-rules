@@ -3,7 +3,7 @@ name: shell-bootstrap
 description: "Trigger: bootstrap shell, install AGENTS.md, adopt agent rules, new project shell, fill project profile, port check. Copy the personal agent shell into a project, fill its Project Profile from the repo's own evidence, and prove no foreign project facts leaked in."
 license: Apache-2.0
 metadata:
-  author: albertmac11
+  author: https://github.com/albertopo94
   version: "1.0"
 ---
 
