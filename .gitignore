@@ -1,5 +1,70 @@
+# Copied into new projects: delete the sections the stack does not use.
+# Each block is independent; an unused block is noise, not a risk.
+
+# --- OS ---
 .DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# --- Editors / terminals ---
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Agent tooling caches (regenerated, never authored) ---
 .atl/
+.codegraph/
+*.log
+
+# --- Secrets and local overrides (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.*
+
+# --- Python ---
 __pycache__/
+*.py[cod]
 .venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# --- Node / JavaScript / TypeScript ---
 node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+coverage/
+.turbo/
+next/
+out/
+
+# --- Go ---
+bin/
+*.test
+*.out
+
+# --- Rust ---
+target/
+
+# --- Java / JVM ---
+target/
+.gradle/
+*.class
+
+# --- .NET ---
+[Bb]in/
+[Oo]bj/
+*.user
