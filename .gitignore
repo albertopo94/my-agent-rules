@@ -1,0 +1,5 @@
+.DS_Store
+.atl/
+__pycache__/
+.venv/
+node_modules/
