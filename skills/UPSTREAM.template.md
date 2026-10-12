@@ -1,10 +1,15 @@
 # Vendored skill — provenance record
 
 Copy this file to `skills/<skill-name>/UPSTREAM.md` for every skill copied from another
-repository. Skills I wrote myself get no `UPSTREAM.md` — its absence means "authored here".
+repository. A skill folder **without** `UPSTREAM.md` was written here.
 
-The record exists so an agent can later answer, without being told how: *has this skill changed
-upstream, and what would we lose or inherit by updating?*
+The record exists so any agent can answer, without being told how: *has this skill changed
+upstream since we copied it, and what would updating change for us?*
+
+## License
+
+Not a gate. If the source is a public repository we copy it, and the license is recorded as an
+informational field so the origin is traceable. Do not block, debate, or ask about licensing.
 
 ## Template
 
@@ -14,41 +19,50 @@ upstream, and what would we lose or inherit by updating?*
 | Field | Value |
 |---|---|
 | Upstream repository | https://github.com/<owner>/<repo> |
-| Path in upstream | `skills/<name>/` |
-| Revision copied | `<full commit sha>` |
-| Upstream date of that revision | YYYY-MM-DD |
-| Date fetched here | YYYY-MM-DD |
-| Upstream license | <SPDX id, e.g. MIT / Apache-2.0> + notice preserved? yes/no |
-| Modified locally | no \| yes — list every changed file and why |
+| Path in upstream | `skills/<name>` |
+| Last upstream commit for **this path** | `<full sha>` |
+| Last modified upstream | YYYY-MM-DD  *(date of that path-scoped commit)* |
+| Repo HEAD when copied | `<full sha>` |
+| Fetched here | YYYY-MM-DD |
+| Upstream license | <SPDX id, or "none declared"> |
+| Modified locally | no \| yes — list each changed file and why |
 
-## How to check for updates
+## Check for updates
 
-    # 1. Did upstream touch this path since the revision above?
-    gh api "repos/<owner>/<repo>/commits?path=skills/<name>&since=<revision date>&per_page=10" \
-      --jq '.[] | .sha[0:8] + "  " + .commit.author.date[0:10] + "  " + .commit.message'
+    # Has upstream touched THIS path since the recorded commit?
+    gh api "repos/<owner>/<repo>/commits?path=skills/<name>&per_page=5" \
+      --jq '.[] | .sha[0:8] + "  " + .commit.author.date[0:10] + "  " + (.commit.message | split("\n")[0])'
 
-    # 2. Diff upstream against our copy
+    # Anything newer than the recorded sha means an update exists.
+
+    # What changed upstream since our commit, for this path only:
+    gh api "repos/<owner>/<repo>/compare/<recorded sha>..HEAD" --jq '.files[] | select(.filename | startswith("skills/<name>")) | .status + "  " + .filename'
+
+    # Full diff against our local copy, including our own edits:
     git clone --depth 1 https://github.com/<owner>/<repo> /tmp/<repo>
     diff -ru /tmp/<repo>/skills/<name> skills/<name>
 
-## Report format
+## Report
 
-Upstream unchanged since `<sha>` → say so, nothing to do.
-Upstream changed → list: commits touching the path, whether the change adds or removes
-instructions, whether it touches anything security-relevant (new commands, new file writes,
-new credentials), our local modifications that would conflict, and a keep/update recommendation.
+**Unchanged** — newest commit for the path equals the recorded sha: say so, nothing to do.
+
+**Changed** — list the commits touching the path, then: what instructions are added or removed,
+whether anything security-relevant appears (new commands to run, new files written, credentials or
+network calls requested), whether our local edits conflict, and a keep or update recommendation.
 Never overwrite a vendored skill without showing that diff first.
 ```
 
 ## Rules
 
-- **One record per vendored skill, inside that skill's folder.** No central registry: a registry
-  drifts from the files it describes.
-- Record the **full commit sha**, never a branch name. A branch moves; the sha is what was actually
-  read and is the only thing a later diff can be anchored to.
-- Record the upstream date of **that revision**, not the fetch date. They differ whenever the
-  upstream moved before we noticed, and the gap is the actual update window.
-- If a vendored skill is edited here, set `Modified locally: yes` and list the files. Without it,
-  an update looks like it applies cleanly when it silently drops our changes.
-- Update check is read-only. Applying an update is a normal change: show the diff, keep the
-  provenance record current, commit.
+- **One record per vendored skill, inside that skill's folder.** No central registry: it drifts
+  from the files it describes.
+- **Anchor every date and sha to the skill's path, never to the repository HEAD.** A repo can be
+  updated weekly while a given skill sits untouched for a year; a HEAD-anchored date turns every
+  check into a false alarm. `Repo HEAD when copied` is recorded only as context for locating the
+  snapshot, never as the change indicator.
+- Store the **full commit sha**, not a branch name. A branch moves; the sha is what was actually
+  read and the only thing a later diff can anchor to.
+- If the skill is edited here, set `Modified locally: yes` and list the files — otherwise an update
+  looks like it applies cleanly while silently dropping our changes.
+- Update checks are read-only. Applying an update is an ordinary change: show the diff, refresh the
+  record, commit.
