@@ -13,11 +13,24 @@ CHANGELOG (no releases yet), CI.
 
 | # | Task | Done | Evidence |
 |---|---|---|---|
-| 1 | Load skill-creator, cognitive-doc-design, skill style guide | yes | `~/.agents/skills` + `docs/skill-style-guide.md` |
-| 2 | `README.md`: what the repo is, daily-flow value, adoption path | pending | |
-| 3 | `skills/shell-bootstrap/SKILL.md`: install shell, fill Profile, port check | pending | |
-| 4 | `LICENSE` and stack-agnostic `.gitignore` | pending | |
-| 5 | Verify: port-check clean, frontmatter parses, tree matches README | pending | |
+| 1 | Load skill-creator, cognitive-doc-design, skill style guide | yes | `docs/skill-style-guide.md` section order + token budget applied |
+| 2 | `README.md`: what the repo is, daily-flow value, adoption path | yes | commit `7c231d1` |
+| 3 | `skills/shell-bootstrap/SKILL.md`: install shell, fill Profile, port check | yes | commit `662899d`; 428 words, ~570 tokens, style-guide section order |
+| 4 | `LICENSE` and stack-agnostic `.gitignore` | yes | commit `52b6a7e` |
+| 5 | Verify: port-check clean, frontmatter parses, tree matches README | yes | `grep` port-check on AGENTS.md returns empty; frontmatter is one YAML-safe line; `git ls-files` matches README Contents |
+
+## Verification commands
+
+```bash
+grep -rniE 'bridge|pyproject|24980|unittest|python3|README\.md' AGENTS.md   # empty
+wc -w skills/shell-bootstrap/SKILL.md                                       # 428
+```
+
+## Deliberately skipped
+
+- **CHANGELOG** — nothing is released, so it would be an empty file asserting a history.
+- **CI** — a docs-only repo with nothing to build or test.
+- **A second skill** — no gap left that the global skill set does not already cover.
 
 ## Decisions
 
@@ -33,4 +46,4 @@ CHANGELOG (no releases yet), CI.
 
 ## Status
 
-In progress.
+Complete. `version: not bumped (this repo declares no version source in AGENTS.md §0)`.
