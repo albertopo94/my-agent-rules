@@ -82,6 +82,11 @@ report the assumption you made. Never substitute a value remembered from another
   an accessibility requirement, not polish. No dead links: a control that goes nowhere is either
   wired or visibly disabled, and the current location is indicated. Modal system dialogs
   (`alert`, `confirm`, `prompt`) are never UI.
+- **Extend structure; do not fragment it.** New work lands as tasks inside the structure that
+  already covers it. A new first-level unit (section, module, plan component, skill) is created
+  only for a durable part of the product, tested now, not predicted: something else already
+  depends on it, deleting it would change what the product does, and it owns paths nothing else
+  claims. If no second change ever comes, merge it back into its neighbor.
 
 ## 2. Secrets
 
@@ -150,6 +155,16 @@ left implicit.
   end up in the commit.
 
 ## 6. Closing a work unit
+
+**Progress tracking is live, not retrospective.** If the work is being tracked (task list, plan
+file, checklist, issue), update it the moment the state changes: mark a task in progress when it
+starts and done the moment it finishes, never batch the updates at the end of the session. A
+stale tracker is misinformation, the same failure class as a stale version number.
+
+**Write progress and plan documents for the human who reads them.** Plain, verb-led, concrete
+titles a person can tell are done ("Read alerts out loud"), not engineer jargon ("fs watcher +
+activity signal") and not vague phrases nobody can verify ("Decide what matters"). Keep the
+engineering detail on a separate line or note under the title.
 
 Report, in this order:
 
