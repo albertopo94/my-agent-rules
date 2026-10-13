@@ -92,6 +92,7 @@ alarm every time.
 | web-perf | cloudflare/skills | `3af2c774` · 2026-09-05 (MCP example pinned, see UPSTREAM.md) |
 | vercel-react-best-practices | vercel-labs/agent-skills | `dc8367e6` · 2026-04-14 (generated AGENTS.md + README + metadata dropped, see UPSTREAM.md) |
 | web-design-guidelines | vercel-labs/agent-skills | `ba469388` · 2026-01-16 + rules source pinned, see UPSTREAM.md |
+| webapp-testing | anthropics/skills | `b9e19e6f` · 2026-04-20 |
 | agent-e2e-testing, github-actions-templates, nodejs-best-practices, secrets-management, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 ## Deliberately not here
