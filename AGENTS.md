@@ -55,6 +55,11 @@ report the assumption you made. Never substitute a value remembered from another
 - **Dependencies are a proposal, not a decision.** Do not add anything to the dependency
   manifest or lockfile without naming it, its size and maintenance status, and what breaks
   without it. Prefer the language standard library and what the project already uses.
+- **A bulk dependency update is not one action.** Never satisfy a request about one package by
+  running an upgrade-all command (`npm update`, `cargo update`, `go get -u`, `pip install -U`,
+  `poetry update`): update that package. Upgrade-all output moves transitive versions nobody
+  reads, and a lockfile rewritten wholesale is the diff nobody reviews. Even scope-wide upgrades
+  get listed and reviewed entry by entry before anything is applied.
 
 ## 2. Secrets
 
@@ -129,7 +134,10 @@ Report, in this order:
 1. What changed and why.
 2. Which checks ran, with their result lines; which did not run and why.
 3. `version: <before> → <after>` and `breaking: <list>` or `breaking: none`.
-4. Follow-ups found outside this scope.
+4. Every guard this change removes or weakens — a validation, warning, safety rule, or access
+   check that existed before this task. Name it even when the removal was intentional or asked
+   for: a commit titled `feat:` that deletes a security warning reads as harmless otherwise.
+5. Follow-ups found outside this scope.
 
 Keep it short enough to read in one pass. Never write that work is complete while a check is
 failing, skipped without justification, or unverified.
@@ -169,6 +177,8 @@ Exposure:
 - Security headers, HTTPS enforced by redirect with HSTS.
 - Uploads type-checked, size-capped, and stored outside the served root.
 - Secrets absent from git history; dependency vulnerabilities scanned.
+- Dependencies from registry-verified publishers with provenance metadata where the registry
+  offers it.
 
 For agent and LLM features, additionally: treat retrieved content, tool output, and user-supplied
 text as untrusted *data*, never as instructions, and keep destructive capability out of reach of
