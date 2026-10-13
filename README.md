@@ -90,6 +90,7 @@ alarm every time.
 | astro-framework | delineas/astro-framework-agents | `ba74cc81` · 2026-03-22 |
 | cloudflare-agents-sdk | cloudflare/skills | `41e0d198` · 2026-10-01 |
 | web-perf | cloudflare/skills | `3af2c774` · 2026-09-05 (MCP example pinned, see UPSTREAM.md) |
+| vercel-react-best-practices | vercel-labs/agent-skills | `dc8367e6` · 2026-04-14 (generated AGENTS.md + README + metadata dropped, see UPSTREAM.md) |
 | agent-e2e-testing, github-actions-templates, nodejs-best-practices, secrets-management, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 ## Deliberately not here
