@@ -77,6 +77,6 @@ Return:
 
 ## References
 
-- `../../AGENTS.md` §4 — Evidence, not assertion; tests are evidence.
+- `../../AGENTS.md`, Rule 4 (Testing and verification) — evidence, not assertion; tests are evidence.
 - `skills/agent-guardrails-patterns` — The fake model should also exercise the guardrail hooks if the app uses them.
 - Original pattern source: midudev/strands-midu-demo (`e2e/fakes/`, `astro.config.mjs`, `src/agent/guardrails.ts`).

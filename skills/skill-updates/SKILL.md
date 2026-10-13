@@ -61,4 +61,4 @@ local edits, and a keep or update recommendation. End with the applied and decli
 ## References
 
 - `UPSTREAM.template.md` — the field meanings and the update-check contract each record follows.
-- `AGENTS.md` §4 — quote the commands actually run; never claim current without evidence.
+- `AGENTS.md`, Rule 4 (Testing and verification) — quote the commands actually run; never claim current without evidence.

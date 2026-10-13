@@ -66,5 +66,5 @@ prevents it.
 
 ## References
 
-- `../../AGENTS.md` §1 — read before you write, including the search-for-existing-helper rule.
-- `../../AGENTS.md` §4 — scale the check to the change before deciding what to test.
+- `../../AGENTS.md`, Rule 1 (Before writing) — read before you write, including the search-for-existing-helper rule.
+- `../../AGENTS.md`, Rule 4 (Testing and verification) — scale the check to the change before deciding what to test.

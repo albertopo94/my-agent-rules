@@ -1,10 +1,10 @@
 # AI Agent Guidelines
 
-These rules bind every AI agent and human contributor working on the product named in §0. The
+These rules bind every AI agent and human contributor working on the product named in the **Project Profile**. The
 file states **norms only**: rules that stay true when it is copied into an unrelated project.
-Project-specific facts live in §0 and nowhere else. Tool names, file paths, ports, and framework
-names must not appear outside §0 — if a rule stops being true after copying this file to a project
-written in another language, it is a fact, not a norm, and belongs in §0.
+Project-specific facts live in the Project Profile and nowhere else. Tool names, file paths, ports, and framework
+names must not appear outside the Project Profile — if a rule stops being true after copying this file to a project
+written in another language, it is a fact, not a norm, and belongs in the Project Profile.
 
 **Authority, highest first:** human instruction in the current task → this file → the
 project's own existing conventions → the model's preferences. When two levels conflict, follow
@@ -45,7 +45,7 @@ report the assumption you made. Never substitute a value remembered from another
   or flag: confirm it against the installed dependency's real source or version. Before adding a
   helper, search for one that already exists — duplicating a utility in a second file is a defect,
   not a convenience.
-- **Target the platform floor declared in §0.** Do not use a facility, syntax, or syscall that is
+- **Target the platform floor declared in the Project Profile.** Do not use a facility, syntax, or syscall that is
   unavailable there, and do not widen the floor on your own to make an implementation easier.
 - **Smallest correct diff.** Touch only files the task requires. Never reformat, rename, move,
   or delete unrelated code, and never "improve" adjacent code while you are in the file.
@@ -106,8 +106,8 @@ left implicit.
 | `feat` — new public behavior, nothing existing breaks | MINOR |
 | everything else: `fix` `docs` `test` `refactor` `chore` `perf`, or unclear | PATCH |
 
-- Resolve what `MAJOR` means only through **Stability contract** in §0. While the project is
-  `unstable`, never choose MAJOR on your own: name the breakage in the §6 `breaking:` field and
+- Resolve what `MAJOR` means only through the **Stability contract** in the Project Profile. While the project is
+  `unstable`, never choose MAJOR on your own: name the breakage in the closing report's `breaking:` field and
   bump MINOR. MAJOR on an `unstable` project happens only on explicit request.
 - **Bump once per work unit**, using the highest category present across its commits, not once per
   commit. The version change lands in the **last** commit of the work unit, so it does not pollute
@@ -115,12 +115,12 @@ left implicit.
 - `PATCH` means the observable behavior of the public surface is unchanged; it covers bug fixes,
   documentation, added tests, and internal refactors. A documentation-only change is a PATCH, so a
   typo fix that bumps the patch number is correct and is not a reason to skip the bump.
-- Update the **Version source** from §0 and nothing else. If that field is empty, do not guess a
+- Update the **Version source** from the Project Profile and nothing else. If that field is empty, do not guess a
   file: report `version: not bumped (version source undeclared)`.
 - If you cannot decide whether something is breaking, take the lower category and state the
   uncertainty in one line.
 - **Every completed work unit must report `version: <before> → <after>`, writing `unchanged`
-  when it did not move, together with the `breaking:` field required by §6.** Both lines are
+  when it did not move, together with the `breaking:` field required by the closing report.** Both lines are
   information for later traceability, not approval requested now.
 
 ## 4. Testing and verification
@@ -129,7 +129,7 @@ left implicit.
   type-check, a build — runs when the change touches behavior, when it is risky, or when the
   cheapest available signal does not cover what you touched. Not after every small edit. The
   cheapest signal that covers the change wins.
-- If §0 declares a test command: behavior changes go test-first — observe the failure for the
+- If the Project Profile declares a test command: behavior changes go test-first — observe the failure for the
   expected reason, implement, observe the pass, then refactor with the focused command.
 - If no test command is declared, do not improvise one and do not claim tests: run a
   proportionate functional or structural check and say which one.
@@ -185,7 +185,7 @@ Two kinds of unknown, two different responses:
 
 - **Execution detail that only stalls the build** — sample content, naming, visual direction,
   which of several reasonable options: make a reasonable choice, state it in one line in the
-  §6 report, and continue. Do not stall work on a question whose answer does not change the
+  closing report, and continue. Do not stall work on a question whose answer does not change the
   artifact.
 - **Anything that changes what the artifact is, or that the user must own:**
 
@@ -201,7 +201,7 @@ Naming the ambiguity once costs less than shipping the wrong thing quietly.
 
 ## 8. Conditional: security checklist
 
-Delete this whole section when the product in §0 is not network-exposed and persists no data — a
+Delete this whole section when the product in the Project Profile is not network-exposed and persists no data — a
 CLI, library, or terminal tool has none of these surfaces. Never add a server, a cookie, or a
 database to satisfy a rule here.
 
