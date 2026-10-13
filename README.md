@@ -89,7 +89,7 @@ alarm every time.
 | bash-defensive-patterns | wshobson/agents | `be57c0b2` · 2026-05-22 |
 | astro-framework | delineas/astro-framework-agents | `ba74cc81` · 2026-03-22 |
 | cloudflare-agents-sdk | cloudflare/skills | `41e0d198` · 2026-10-01 |
-| agent-e2e-testing, nodejs-best-practices, shell-bootstrap, skill-updates | authored here — no upstream | — |
+| agent-e2e-testing, github-actions-templates, nodejs-best-practices, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 ## Deliberately not here
 
