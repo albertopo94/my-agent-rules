@@ -54,12 +54,24 @@ report the assumption you made. Never substitute a value remembered from another
   instead of fixing it inside this change.
 - **Dependencies are a proposal, not a decision.** Do not add anything to the dependency
   manifest or lockfile without naming it, its size and maintenance status, and what breaks
-  without it. Prefer the language standard library and what the project already uses.
+  without it. Verify the exact name and publisher in the public registry before adding it —
+  a lookalike name is a supply-chain attack, not a typo. Prefer the language standard library
+  and what the project already uses.
 - **A bulk dependency update is not one action.** Never satisfy a request about one package by
   running an upgrade-all command (`npm update`, `cargo update`, `go get -u`, `pip install -U`,
   `poetry update`): update that package. Upgrade-all output moves transitive versions nobody
   reads, and a lockfile rewritten wholesale is the diff nobody reviews. Even scope-wide upgrades
   get listed and reviewed entry by entry before anything is applied.
+- **Match the manifest's range style.** Pin exact versions when the manifest is new or empty;
+  otherwise follow the width its existing ranges already use. Never widen or change the width of
+  a range you did not choose.
+- **Commit the lockfile.** The resolved dependency snapshot commits in the same change as its
+  manifest. Never delete it or add it to `.gitignore`.
+- **Install from the lock.** If the lockfile and the manifest disagree, report the drift as a
+  finding — do not silently regenerate the lock to make the two agree.
+- **Foreign code needs approval.** A dependency whose install, build, or postinstall step
+  executes code, and any dependency referenced by a URL or VCS instead of a registry package,
+  both require explicit approval before installing.
 
 ## 2. Secrets
 
