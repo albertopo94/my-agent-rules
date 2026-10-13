@@ -1,6 +1,6 @@
 ---
-name: agents-sdk
-description: Build, debug, or review Cloudflare Agents SDK applications using the agents package.
+name: cloudflare-agents-sdk
+description: "Trigger: Cloudflare Agents SDK, Workers agents, durable state, Workflows, MCP, voice agents. Build, debug, or review Cloudflare Agents SDK applications using the agents package."
 ---
 
 # Cloudflare Agents SDK
