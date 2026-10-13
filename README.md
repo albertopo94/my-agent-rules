@@ -89,6 +89,7 @@ alarm every time.
 | bash-defensive-patterns | wshobson/agents | `be57c0b2` · 2026-05-22 |
 | astro-framework | delineas/astro-framework-agents | `ba74cc81` · 2026-03-22 |
 | cloudflare-agents-sdk | cloudflare/skills | `41e0d198` · 2026-10-01 |
+| web-perf | cloudflare/skills | `3af2c774` · 2026-09-05 (MCP example pinned, see UPSTREAM.md) |
 | agent-e2e-testing, github-actions-templates, nodejs-best-practices, secrets-management, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 ## Deliberately not here
