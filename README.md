@@ -84,6 +84,7 @@ alarm every time.
 | typescript-advanced-types | wshobson/agents | `be57c0b2` · 2026-05-22 |
 | nodejs-backend-patterns | wshobson/agents | `51b6e0b5` · 2026-09-28 |
 | api-design-principles | wshobson/agents | `be57c0b2` · 2026-05-22 |
+| architecture-patterns | wshobson/agents | `be57c0b2` · 2026-05-22 |
 | bash-defensive-patterns | wshobson/agents | `be57c0b2` · 2026-05-22 |
 | astro-framework | delineas/astro-framework-agents | `ba74cc81` · 2026-03-22 |
 | cloudflare-agents-sdk | cloudflare/skills | `41e0d198` · 2026-10-01 |
