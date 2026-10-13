@@ -93,6 +93,7 @@ alarm every time.
 | vercel-react-best-practices | vercel-labs/agent-skills | `dc8367e6` · 2026-04-14 (generated AGENTS.md + README + metadata dropped, see UPSTREAM.md) |
 | web-design-guidelines | vercel-labs/agent-skills | `ba469388` · 2026-01-16 + rules source pinned, see UPSTREAM.md |
 | webapp-testing | anthropics/skills | `b9e19e6f` · 2026-04-20 |
+| programmatic-seo | LeoYeAI/openclaw-marketing-skills | `f2d46007` · 2026-03-17 (adopted as authored, aggregator source, scale clause + file write note, see UPSTREAM.md) |
 | agent-e2e-testing, github-actions-templates, interface-design, nodejs-best-practices, secrets-management, shell-bootstrap, skill-updates | authored here — no upstream | — |
 
 ## Deliberately not here
