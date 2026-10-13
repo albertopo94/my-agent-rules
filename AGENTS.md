@@ -72,6 +72,16 @@ report the assumption you made. Never substitute a value remembered from another
 - **Foreign code needs approval.** A dependency whose install, build, or postinstall step
   executes code, and any dependency referenced by a URL or VCS instead of a registry package,
   both require explicit approval before installing.
+- **Never ship generated filler.** Lorem ipsum, placeholder names and brands ("Acme Corp",
+  "John Doe"), round fake numbers ("99.99%", "$100.00"), and boilerplate AI phrasing
+  ("Elevate", "Seamless", "Unleash", "Delve") mark work as generated, not made. Sample data
+  and copy must read as real: contextual names, organic numbers, sentence case, active voice,
+  and direct error text without "Oops!" or exclamation marks.
+- **Ship surfaces with their full state set, where the medium supports it.** Every interactive
+  element needs hover, pressed, visible focus, loading, empty, and error states; a focus ring is
+  an accessibility requirement, not polish. No dead links: a control that goes nowhere is either
+  wired or visibly disabled, and the current location is indicated. Modal system dialogs
+  (`alert`, `confirm`, `prompt`) are never UI.
 
 ## 2. Secrets
 
@@ -156,13 +166,21 @@ failing, skipped without justification, or unverified.
 
 ## 7. Stop and ask
 
-Ask before acting when:
+Two kinds of unknown, two different responses:
+
+- **Execution detail that only stalls the build** — sample content, naming, visual direction,
+  which of several reasonable options: make a reasonable choice, state it in one line in the
+  §6 report, and continue. Do not stall work on a question whose answer does not change the
+  artifact.
+- **Anything that changes what the artifact is, or that the user must own:**
 
 - the request has two readings that produce different artifacts;
 - an action is destructive or hard to reverse (history rewrite, force push, data deletion,
   dropping storage, dropping or rewriting a published interface);
 - a product decision is yours to guess but not yours to own;
 - a check failed and the cause is outside the scope you were given.
+
+When in doubt which kind it is, treat it as the second one.
 
 Naming the ambiguity once costs less than shipping the wrong thing quietly.
 
