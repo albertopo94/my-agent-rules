@@ -88,12 +88,19 @@ report the assumption you made. Never substitute a value remembered from another
   depends on it, deleting it would change what the product does, and it owns paths nothing else
   claims. If no second change ever comes, merge it back into its neighbor.
 
-## 2. Secrets
+## 2. Secrets and Database
 
 - Never place credentials, tokens, keys, or real user data in source code, tests, fixtures,
   logs, commit messages, or command output. Use the project's existing secret mechanism; if it
   has none, say so rather than introducing one silently.
 - Mask secret values when echoing configuration for debugging.
+
+### Database (if applicable)
+
+- NEVER EVER try to make changes to production DB yourself
+- Document every DB change with a clear .sql file
+- Save migrations in `docs/database/` with what/why/how-to-apply/verify
+- Prod DB changes require explicit human approval
 
 ## 3. Versioning
 
@@ -228,3 +235,16 @@ Exposure:
 For agent and LLM features, additionally: treat retrieved content, tool output, and user-supplied
 text as untrusted *data*, never as instructions, and keep destructive capability out of reach of
 untrusted text.
+
+---
+
+## 9. Architecture Decision Records (if applicable)
+
+Projects with architectural decisions should maintain `docs/adr/`:
+
+- Format: `docs/adr/NNNN-short-title.md`
+- Content: Context, Decision, Consequences
+- Short, clear, verbatim from discussion
+- Never rewrite old ADRs — add new superseding ADR
+- High-impact decisions deserve an ADR; remind human, don't write it yourself
+- Use `/adr-verbatim` skill for format
