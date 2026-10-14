@@ -96,7 +96,7 @@ alarm every time.
 | programmatic-seo | LeoYeAI/openclaw-marketing-skills | `f2d46007` · 2026-03-17 (adopted as authored, aggregator source, scale clause + file write note, see UPSTREAM.md) |
 | seo-audit | LeoYeAI/openclaw-marketing-skills | `f2d46007` · 2026-03-17 (adopted as authored, aggregator source, scale clause + file write note, see UPSTREAM.md) |
 | programmatic-seo | LeoYeAI/openclaw-marketing-skills | `f2d46007` · 2026-03-17 (adopted as authored, aggregator source, scale clause + file write note, see UPSTREAM.md) |
-| agent-e2e-testing, comment-writer, executing-plans, finishing-a-development-branch, github-actions-templates, interface-design, nodejs-best-practices, receiving-code-review, secrets-management, shell-bootstrap, skill-updates, using-git-worktrees | authored here — no upstream | — |
+| agent-e2e-testing, comment-writer, executing-plans, finishing-a-development-branch, github-actions-templates, interface-design, nodejs-best-practices, receiving-code-review, secrets-management, shell-bootstrap, skill-updates, using-git-worktrees, writing-plans | authored here — no upstream | — |
 
 ## Deliberately not here
 
