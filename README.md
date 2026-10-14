@@ -111,3 +111,15 @@ alarm every time.
 
 After copying the shell, load `skills/shell-bootstrap/SKILL.md` in the new project and let the
 agent fill the Project Profile from the repo's own manifests and CI config, then report the port-check result.
+
+---
+
+## External Skills of Interest
+
+Repos with skills I track but don't vendor here — either too large, too niche, or not used often
+enough to justify the maintenance burden. Kept here for quick reference.
+
+| Skill / Repo | Why Not Vendored | When to Use |
+|---|---|---|
+| [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | Large skill (dedicated repo), focused on Cloudflare-specific security auditing; repo already has `web-perf` for general perf audits | Auditing Cloudflare-specific configurations, WAF rules, DDoS settings, API Shield, Zero Trust policies |
+
